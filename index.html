@@ -3,102 +3,135 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Barış ve Helin'in nişan davetiyesi">
+
+        <meta name="description" content="">
         <meta name="author" content="">
 
         <title>Barış&Helin - Nişan Daveti</title>
 
         <!-- CSS FILES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
+        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+        
         <style>
+            /* Genel Stiller */
             body {
                 font-family: 'Playfair Display', serif;
-                background-color: #f9f3f3;
+                background-color: #f9f9f9;
                 color: #333;
-            }
-            
-            .amatic-font {
-                font-family: 'Amatic SC', cursive;
-                font-weight: 700;
-            }
-            
-            .navbar-brand {
-                font-family: 'Amatic SC', cursive;
-                font-size: 28px;
-                font-weight: 700;
-            }
-            
-            .brand-icon {
-                color: #e83e8c;
-                margin: 0 5px;
-            }
-            
-            .hero-section {
-                background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f9f3f3"/><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T30,70 T10,50 T30,30" fill="none" stroke="%23e83e8c" stroke-width="2" opacity="0.2"/></svg>');
-                background-size: cover;
-                background-position: center;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                padding: 60px 0;
             }
             
             .hero-title {
                 font-family: 'Amatic SC', cursive;
-                font-size: 4rem;
                 font-weight: 700;
-                color: #e83e8c;
+                font-size: 4rem;
+            }
+            
+            .brand-icon {
+                color: #ff6b6b;
+                margin: 0 10px;
+            }
+            
+            .navbar-brand span {
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+                font-size: 3rem;
             }
             
             .custom-btn {
-                background-color: #e83e8c;
+                background-color: #ff6b6b;
                 color: white;
                 border: none;
-                padding: 12px 30px;
+                padding: 10px 25px;
                 border-radius: 30px;
-                font-weight: 600;
+                text-decoration: none;
+                display: inline-block;
                 transition: all 0.3s;
             }
             
             .custom-btn:hover {
-                background-color: #d01d72;
+                background-color: #ff5252;
                 transform: translateY(-3px);
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            /* Hero Section Düzeni */
+            .hero-section {
+                background-image: url('https://placehold.co/1920x1080');
+                background-size: cover;
+                background-position: center;
+                min-height: 100vh;
+                padding: 100px 0;
+                position: relative;
+            }
+            
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.7);
+            }
+            
+            .hero-container {
+                position: relative;
+                z-index: 1;
+            }
+            
+            /* Sol Taraf - Geri Sayım ve Tarih */
+            .left-content {
+                padding-right: 30px;
+            }
+            
+            /* Sağ Taraf - Davet Metni */
+            .right-content {
+                padding-left: 30px;
+                text-align: right;
             }
             
             .save-the-date-wrap {
                 background: rgba(255, 255, 255, 0.9);
                 border-radius: 15px;
                 padding: 25px;
-                box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-                border: 2px solid #e83e8c;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+                border: 2px solid #ff6b6b;
             }
             
             .save-the-date-title {
                 font-family: 'Amatic SC', cursive;
-                font-size: 2.2rem;
-                color: #e83e8c;
-                text-align: center;
-                margin-bottom: 20px;
+                font-weight: 700;
+                font-size: 2rem;
+                color: #ff6b6b;
+                margin-bottom: 15px;
             }
             
             .save-the-date-body {
-                text-align: center;
                 font-size: 1.2rem;
                 margin-bottom: 20px;
             }
             
+            /* Geri Sayım Stilleri */
             .geri-sayim {
                 margin-top: 20px;
                 padding: 20px;
                 background: rgba(255, 255, 255, 0.85);
                 border-radius: 15px;
                 text-align: center;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
                 border: 2px solid #000;
             }
             
@@ -130,53 +163,74 @@
                 margin-top: 5px;
             }
             
-            .section-title {
-                font-family: 'Amatic SC', cursive;
-                font-size: 3rem;
-                text-align: center;
-                margin-bottom: 30px;
-                color: #e83e8c;
+            /* Responsive Düzenlemeler */
+            @media (max-width: 992px) {
+                .left-content, .right-content {
+                    padding: 0 15px;
+                    text-align: center;
+                }
+                
+                .hero-title {
+                    font-size: 3rem;
+                }
+                
+                .geri-sayim .zaman {
+                    margin: 0 5px;
+                    min-width: 60px;
+                }
+                
+                .geri-sayim .deger {
+                    font-size: 22px;
+                }
+                
+                .geri-sayim .birim {
+                    font-size: 12px;
+                }
             }
             
-            .section-title-bottom {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 40px;
+            @media (max-width: 576px) {
+                .geri-sayim .zaman {
+                    margin: 5px;
+                    min-width: 50px;
+                }
+                
+                .save-the-date-wrap {
+                    padding: 15px;
+                }
             }
             
-            .section-title-line {
-                height: 2px;
-                width: 50px;
-                background-color: #e83e8c;
+            /* Diğer Bölümler */
+            .section-padding {
+                padding: 80px 0;
             }
             
-            .section-title-icon {
-                color: #e83e8c;
-                margin: 0 15px;
+            .section-bg {
+                background-color: #f8f9fa;
             }
             
-            .about-image {
+            .image-hover-thumb {
+                overflow: hidden;
                 border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
                 margin-bottom: 20px;
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
             }
             
-            .about-info-wrap {
-                background: white;
-                padding: 25px;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-                height: 100%;
+            .image-hover-thumb img {
+                transition: transform 0.5s;
+                width: 100%;
+            }
+            
+            .image-hover-thumb:hover img {
+                transform: scale(1.05);
+            }
+            
+            .about-info-title {
+                margin-bottom: 15px;
             }
             
             .about-tag {
-                background: #e83e8c;
+                background: #ff6b6b;
                 color: white;
-                padding: 3px 12px;
+                padding: 5px 10px;
                 border-radius: 20px;
                 font-size: 0.8rem;
             }
@@ -192,134 +246,41 @@
             }
             
             .social-icon-link {
-                color: #e83e8c;
+                color: #ff6b6b;
                 font-size: 1.5rem;
-                transition: all 0.3s;
+                transition: color 0.3s;
             }
             
             .social-icon-link:hover {
-                color: #d01d72;
-                transform: translateY(-3px);
+                color: #ff5252;
             }
             
-            .section-bg {
-                background-color: #fff;
-                padding: 80px 0;
+            .section-title-wrap {
+                text-align: center;
+                margin-bottom: 50px;
             }
             
-            .image-hover-thumb {
-                overflow: hidden;
-                border-radius: 10px;
+            .section-title-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 15px;
             }
             
-            .image-hover-thumb img {
-                transition: all 0.5s;
+            .section-title-line {
+                height: 2px;
+                width: 50px;
+                background: #ff6b6b;
+                display: inline-block;
             }
             
-            .image-hover-thumb:hover img {
-                transform: scale(1.05);
-            }
-            
-            .section-block {
-                background: white;
-                padding: 25px;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-                margin-top: 20px;
-            }
-            
-            .contact-section {
-                background-color: #f9f3f3;
+            .section-title-icon {
+                color: #ff6b6b;
+                margin: 0 15px;
             }
             
             .copyright-text {
                 font-size: 0.9rem;
-            }
-            
-            /* Responsive düzenlemeler */
-            @media (max-width: 992px) {
-                .hero-title {
-                    font-size: 3rem;
-                }
-                
-                .save-the-date-wrap {
-                    margin-top: 40px;
-                }
-            }
-            
-            @media (max-width: 768px) {
-                .geri-sayim .zaman {
-                    margin: 0 5px;
-                    min-width: 60px;
-                }
-                
-                .geri-sayim .deger {
-                    font-size: 22px;
-                }
-                
-                .geri-sayim .birim {
-                    font-size: 12px;
-                }
-                
-                .hero-title {
-                    font-size: 2.5rem;
-                }
-                
-                .save-the-date-title {
-                    font-size: 1.8rem;
-                }
-                
-                .section-title {
-                    font-size: 2.5rem;
-                }
-            }
-            
-            @media (max-width: 576px) {
-                .geri-sayim .zaman {
-                    margin: 5px;
-                    min-width: 50px;
-                }
-            }
-            
-            /* Sol-sağ düzen için özel stiller */
-            .left-content {
-                order: 1;
-            }
-            
-            .right-content {
-                order: 2;
-            }
-            
-            @media (min-width: 992px) {
-                .custom-layout .row {
-                    display: flex;
-                    flex-direction: row;
-                }
-                
-                .left-column {
-                    order: 1;
-                    border-right: 2px dashed #e83e8c;
-                    padding-right: 50px;
-                }
-                
-                .right-column {
-                    order: 2;
-                    padding-left: 50px;
-                }
-            }
-            
-            @media (max-width: 992px) {
-                .left-column {
-                    border-right: none;
-                    border-bottom: 2px dashed #e83e8c;
-                    padding-right: 15px;
-                    padding-bottom: 40px;
-                    margin-bottom: 40px;
-                }
-                
-                .right-column {
-                    padding-left: 15px;
-                }
             }
             
             .preloader {
@@ -328,7 +289,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: #fff;
+                background: white;
                 z-index: 9999;
                 display: flex;
                 align-items: center;
@@ -336,10 +297,9 @@
             }
             
             .spinner-rotate {
-                display: inline-block;
                 animation: rotate 2s linear infinite;
-                color: #e83e8c;
-                font-size: 3rem;
+                color: #ff6b6b;
+                font-size: 2rem;
             }
             
             @keyframes rotate {
@@ -361,8 +321,9 @@
             </div>
         </section>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -392,20 +353,24 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
 
         <main>
-            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
-                <div class="container">
-                    <div class="row custom-layout">
-                        <!-- Sol içerik - Geri sayım ve nişan tarihi -->
-                        <div class="col-lg-6 col-12 left-column">
+
+            <section class="hero-section d-flex align-items-center" id="section_1">
+                <div class="container hero-container">
+                    <div class="row h-100 align-items-center">
+                        
+                        <!-- Sol Taraf: Geri Sayım ve Tarih -->
+                        <div class="col-lg-6 left-content">
                             <div class="save-the-date-wrap">
-                                <h4 class="save-the-date-title amatic-font">NİŞAN TARİHİ</h4>
+                                <h4 class="save-the-date-title">NİŞAN TARİHİ</h4>
+
                                 <div class="save-the-date-body">
-                                    <p class="amatic-font" style="font-size: 28px;">04 Ekim 2025</p>
-                                    <p>CUMARTESİ</p>
+                                    <p> 04 Ekim 2025 
+                                    <br>CUMARTESİ</p>
                                 </div>
                                 
                                 <!-- Geri Sayım -->
@@ -430,24 +395,28 @@
                             </div>
                         </div>
 
-                        <!-- Sağ içerik - Davet metni -->
-                        <div class="col-lg-6 col-12 right-column">
-                            <div class="hero-container d-flex flex-column justify-content-center h-100">
-                                <h2 class="amatic-font" style="font-size: 2.5rem;">👋 Davetlisiniz</h2>
-                                <h1 class="hero-title mb-4">Nişanlanıyoruz</h1>
-                                <a href="#section_2" class="custom-btn btn mt-4 align-self-start">Bilgiler</a>
-                            </div>
+                        <!-- Sağ Taraf: Davet Metni -->
+                        <div class="col-lg-6 right-content">
+                            <h2>👋 Davetlisiniz</h2>
+
+                            <h1 class="text-black hero-title mb-4">Nişanlanıyoruz</h1>
+
+                            <a href="#section_2" class="custom-link custom-btn btn mt-4">Bilgiler</a>
                         </div>
+
                     </div>
                 </div>
             </section>
 
+
             <section class="about-section section-padding" id="section_2">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
                                 <h2 class="section-title">Aşk Hikayesi</h2>
+
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
                                     <i class="section-title-icon bi-heart-fill"></i>
@@ -458,7 +427,7 @@
 
                         <div class="col-lg-3 col-12">
                             <div class="image-hover-thumb">
-                                <img src="https://placehold.co/400x500/e83e8c/white?text=Helin" class="about-image img-fluid" alt="Helin">
+                                <img src="https://placehold.co/600x800" class="about-image img-fluid" alt="">
                             </div>
                         </div>
 
@@ -466,17 +435,24 @@
                             <div class="about-info-wrap d-flex flex-column">
                                 <div class="about-info-title d-flex align-items-center my-3">
                                     <h4>Helin</h4>
+
                                     <span class="about-tag ms-2">GELİN</span>
                                 </div>
+
                                 <p>Sevgili ailemiz ve dostlarımız,</p>
-                                <p>Barış ile birlikte hayatımızın en güzel adımlarından ilkini atıyoruz. 
+                                
+                                 <p>Barış ile birlikte hayatımızın en güzel adımlarından ilkini atıyoruz. 
                                     Bu özel günümüzde yanımızda olmanız, bizimle gülüp sevinmeniz her şeyden daha değerli. 
                                     Hep beraber güzel bir hatıra biriktirmek dileğiyle…💕</p>
+
                                 <div class="social-icon-wrap mt-auto">
                                     <ul class="social-icon ms-auto">
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
+
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
+
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
                                     </ul>
                                 </div>
@@ -485,7 +461,7 @@
 
                         <div class="col-lg-3 col-12">
                             <div class="image-hover-thumb">
-                                <img src="https://placehold.co/400x500/343a40/white?text=Barış" class="about-image img-fluid" alt="Barış">
+                                <img src="https://placehold.co/600x800" class="about-image img-fluid" alt="">
                             </div>
                         </div>
 
@@ -493,22 +469,30 @@
                             <div class="about-info-wrap d-flex flex-column">
                                 <div class="about-info-title d-flex align-items-center my-3">
                                     <h4>Barış</h4>
+
                                     <span class="about-tag ms-2">DAMAT</span>
                                 </div>
+
                                 <p>Merhaba,</p>
+
                                 <p>Helin ile birlikte hayatımızda yeni bir sayfa açıyoruz 
                                     ve bu özel anımızda sizleri de yanımızda görmek istiyoruz. 
                                     Gelin, birlikte gülelim, eğlenelim ve unutulmaz bir hatıra kuralım...💕</p>
+
                                 <div class="social-icon-wrap mt-auto">
                                     <ul class="social-icon ms-auto">
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
+
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
+
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -516,9 +500,11 @@
             <section class="the-wedding-section section-bg section-padding" id="section_3">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
                                 <h2 class="section-title">ETKİNLİK BİLGİLERİ</h2>
+
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
                                     <i class="section-title-icon bi-heart-fill"></i>
@@ -529,14 +515,17 @@
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
                             <div class="image-hover-thumb">
-                                <img src="https://placehold.co/600x400/f8f9fa/343a40?text=Nişan+Alanı" class="img-fluid" alt="Nişan Alanı">
+                                <img src="https://placehold.co/600x400" class="img-fluid" alt="">
                             </div>
+
                             <div class="section-block">
                                 <h3 class="my-3">TÖREN ALANI</h3>
+
                                 <p class="mb-2">
                                     <i class="bi-geo-alt me-1"></i>
                                     MİLENA DAVET EVİ
                                 </p>
+
                                 <p>
                                     <i class="bi-clock me-1"></i>
                                     18:00
@@ -546,10 +535,11 @@
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column">
                             <div class="image-hover-thumb">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.252220360113!2d40.1701951!3d37.9712428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074e1c63d361249%3A0x190d3884be0ad359!2zTcSwTEVOQSBEQVZFVCBFVsSwICYgT1JHQU7EsFpBU1lPTg!5e0!3m2!1str!2str!4v1757858507898!5m2!1str!2str" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.252220360113!2d40.1701951!3d37.9712428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074e1c63d361249%3A0x190d3884be0ad359!2zTcSwTEVOQSBEQVZFVCBFVsSwICYgT1JHQU7EsFpBU1lPTg!5e0!3m2!1str!2str!4v1757858507898!5m2!1str!2str" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                             <div class="section-block">
                                 <h3 class="my-3">Konum</h3>
+
                                 <p class="mb-2">
                                     <i class="bi-geo-alt me-1"></i>
                                     yeni açık oto pazarı yanı,
@@ -559,32 +549,19 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12 d-flex flex-column">
-                            <div class="image-hover-thumb">
-                                <img src="https://placehold.co/600x400/f8f9fa/343a40?text=Davetli+Bilgileri" class="img-fluid" alt="Davetli Bilgileri">
-                            </div>
-                            <div class="section-block">
-                                <h3 class="my-3">DAVETLİ BİLGİLERİ</h3>
-                                <p class="mb-2">
-                                    <i class="bi-info-circle me-1"></i>
-                                    Kıyafet kodu: Resmi kıyafet
-                                </p>
-                                <p>
-                                    <i class="bi-telephone me-1"></i>
-                                    RSVP: 0555 555 55 55
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
 
+
             <section class="contact-section section-bg section-padding" id="section_7">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
                                 <h2 class="section-title">İletişime geçin</h2>
+
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
                                     <i class="section-title-icon bi-heart-fill"></i>
@@ -595,38 +572,49 @@
 
                         <div class="col-lg-4 col-md-6 col-12">
                             <h4 class="mb-4">Bizi Ziyaret Edin</h4>
+
                             <p> MİLENA DAVET EVİ 
                             <br> yeni açık oto pazarı yanı</p>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-12 my-4 my-lg-0 my-md-0">
                             <h4 class="mb-4">İletişim Bilgileri</h4>
+
                             <p class="mb-2">
                                 <a href="mailto:barisha@yaani.com">
                                     barisha@yaani.com
                                 </a>
                             </p>
+
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-12">
                             <h4 class="mb-4">İletişim</h4>
+
                             <ul class="social-icon">
                                 <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
+
                                 <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+
                                 <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
                                 <li class="social-icon-item"><a href="#" target="_blank" class="social-icon-link bi-facebook"></a></li>
                             </ul>
+
                             <p class="copyright-text mt-3 mb-0">BarisHA © 2025 herşey Helin için. 
                             <br> Tasarım: <a href="https://barisha-app.github.io/Baris-Helin/" target="_parent">BarisHA</a></p>
                         </div>
+
                     </div>
                 </div>
             </section>
+
         </main>
 
         <footer class="site-footer py-4">
             <div class="container">
                 <div class="row">
+
                     <div class="col-lg-3 col-12 mx-auto text-center">
                         <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
                             <span>Barış</span>
@@ -634,38 +622,44 @@
                             <span>Helin</span>
                         </a>
                     </div>
+
                 </div>
             </div>
         </footer>
 
         <!-- JAVASCRIPT FILES -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
         <script>
             // Preloader
-            window.addEventListener('load', function() {
-                document.querySelector('.preloader').style.display = 'none';
+            $(window).on('load', function() {
+                $('.preloader').fadeOut('slow');
             });
             
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    document.querySelector('.navbar').classList.add('shadow-sm');
+            // Smooth scrolling
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 70,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+            
+            // Sticky navbar
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('sticky');
                 } else {
-                    document.querySelector('.navbar').classList.remove('shadow-sm');
+                    $('.navbar').removeClass('sticky');
                 }
             });
             
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Geri Sayım JavaScript
+            // Geri Sayım
             var hedefTarih = new Date(2025, 9, 4, 18, 0, 0);
             
             function guncelleGeriSayim() {
