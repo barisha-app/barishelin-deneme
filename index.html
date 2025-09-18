@@ -24,15 +24,31 @@
 
         <link href="css/tooplate-wedding-lite.css" rel="stylesheet">
         
-<!--
-
-Tooplate 2131 Wedding Lite
-
-https://www.tooplate.com/view/2131-wedding-lite
-
-Free Bootstrap 5 HTML Template
-
--->
+        <!-- Geri Sayım CSS -->
+        <style>
+            .geri-sayim {
+                margin-top: 20px;
+                padding: 15px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+                text-align: center;
+            }
+            .geri-sayim .zaman {
+                display: inline-block;
+                margin: 0 8px;
+            }
+            .geri-sayim .deger {
+                font-size: 22px;
+                font-weight: bold;
+                color: #fff;
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+                display: block;
+            }
+            .geri-sayim .birim {
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+        </style>
     </head>
     
     <body>
@@ -105,29 +121,26 @@ Free Bootstrap 5 HTML Template
                                     <p> 04 Ekim 2025 
                                     <br>CUMARTESİ</p>
                                 </div>
-                               </div>
-                                        
-                               <!-- GERİ SAYIM KODUNU BURAYA EKLEYİN -->
-                               <div class="geri-sayim">
-                                   <div class="zaman">
-                                       <span id="gun" class="deger">10</span>
-                                       <div class="birim">Gün</div>
-                                   </div>
-                                   <div class="zaman">
-                                       <span id="saat" class="deger">0</span>
-                                       <div class="birim">Saat</div>
-                                   </div>
-                                   <div class="zaman">
-                                       <span id="dakika" class="deger">0</span>
-                                       <div class="birim">Dakika</div>
-                                   </div>
-                                   <div class="zaman">
-                                       <span id="saniye" class="deger">0</span>
-                                       <div class="birim">Saniye</div>
-                                   </div>
-                               </div>
-                               <!-- GERİ SAYIM KODU SONU -->
                                 
+                                <!-- Geri Sayım Eklentisi Buraya -->
+                                <div class="geri-sayim">
+                                    <div class="zaman">
+                                        <span id="gun" class="deger">0</span>
+                                        <div class="birim">Gün</div>
+                                    </div>
+                                    <div class="zaman">
+                                        <span id="saat" class="deger">0</span>
+                                        <div class="birim">Saat</div>
+                                    </div>
+                                    <div class="zaman">
+                                        <span id="dakika" class="deger">0</span>
+                                        <div class="birim">Dakika</div>
+                                    </div>
+                                    <div class="zaman">
+                                        <span id="saniye" class="deger">0</span>
+                                        <div class="birim">Saniye</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -360,12 +373,37 @@ Free Bootstrap 5 HTML Template
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/magnific-popup-options.js"></script>
         <script src="js/custom.js"></script>
-
+        
+        <!-- Geri Sayım JavaScript -->
+        <script>
+            // 4 Ekim 2025 Cumartesi saat 18:00
+            var hedefTarih = new Date(2025, 9, 4, 18, 0, 0);
+            
+            function guncelleGeriSayim() {
+                var simdi = new Date();
+                var fark = hedefTarih - simdi;
+                
+                if (fark <= 0) {
+                    document.getElementById("gun").textContent = '0';
+                    document.getElementById("saat").textContent = '0';
+                    document.getElementById("dakika").textContent = '0';
+                    document.getElementById("saniye").textContent = '0';
+                    return;
+                }
+                
+                var gun = Math.floor(fark / (1000 * 60 * 60 * 24));
+                var saat = Math.floor((fark % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var dakika = Math.floor((fark % (1000 * 60 * 60)) / (1000 * 60));
+                var saniye = Math.floor((fark % (1000 * 60)) / 1000);
+                
+                document.getElementById("gun").textContent = gun;
+                document.getElementById("saat").textContent = saat;
+                document.getElementById("dakika").textContent = dakika;
+                document.getElementById("saniye").textContent = saniye;
+            }
+            
+            setInterval(guncelleGeriSayim, 1000);
+            guncelleGeriSayim();
+        </script>
     </body>
 </html>
-
-
-
-
-
-
