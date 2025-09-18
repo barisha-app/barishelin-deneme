@@ -11,65 +11,299 @@
 
         <!-- CSS FILES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
-
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
-
-        <link href="css/magnific-popup.css" rel="stylesheet">
-
-        <link href="css/tooplate-wedding-lite.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
         
-        <!-- Geri Sayım CSS -->
         <style>
+            :root {
+                --primary-color: #d4af37;
+                --secondary-color: #f8f9fa;
+                --text-color: #333;
+                --light-text: #fff;
+                --overlay-color: rgba(0, 0, 0, 0.7);
+            }
+            
+            body {
+                font-family: 'Playfair Display', serif;
+                color: var(--text-color);
+                overflow-x: hidden;
+            }
+            
+            .amatic-font {
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+            }
+            
+            /* Hero Section */
+            .hero-section {
+                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080') no-repeat center center;
+                background-size: cover;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                color: var(--light-text);
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+                margin-bottom: 20px;
+            }
+            
+            @media (max-width: 768px) {
+                .hero-title {
+                    font-size: 2.5rem;
+                }
+            }
+            
+            /* Custom Link Button */
+            .custom-link {
+                color: var(--light-text);
+                text-decoration: none;
+                border: 2px solid var(--light-text);
+                padding: 12px 30px;
+                display: inline-block;
+                transition: all 0.3s ease;
+            }
+            
+            .custom-link:hover {
+                background: var(--light-text);
+                color: var(--text-color);
+            }
+            
+            /* Save The Date Section */
+            .save-the-date-wrap {
+                background: var(--overlay-color);
+                padding: 30px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            
+            .save-the-date-title {
+                color: var(--primary-color);
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            
+            .save-the-date-body {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            /* Geri Sayım */
             .geri-sayim {
                 margin-top: 20px;
                 padding: 20px;
-                background: rgba(255, 255, 255, 0.85); /* Daha opak arka plan */
-                border-radius: 15px;
+                background: rgba(255, 255, 255, 0.15);
+                border-radius: 10px;
                 text-align: center;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Kutuya gölge eklendi */
-                border: 2px solid #000; /* Siyah çerçeve eklendi */
+                border: 1px solid rgba(255, 255, 255, 0.3);
             }
+            
             .geri-sayim .zaman {
                 display: inline-block;
                 margin: 0 10px;
                 padding: 10px;
                 min-width: 70px;
             }
+            
             .geri-sayim .deger {
                 font-size: 28px;
                 font-weight: bold;
-                color: #000;
-                text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), 
-                             -1px -1px 0 rgba(255, 255, 255, 0.5),
-                             1px -1px 0 rgba(255, 255, 255, 0.5),
-                             -1px 1px 0 rgba(255, 255, 255, 0.5),
-                             1px 1px 0 rgba(255, 255, 255, 0.5); /* Çoklu gölge ile belirginlik */
+                color: var(--light-text);
                 display: block;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             }
+            
             .geri-sayim .birim {
                 font-size: 14px;
-                color: #000;
+                color: var(--primary-color);
                 font-weight: bold;
-                text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
                 letter-spacing: 1px;
                 margin-top: 5px;
             }
+            
             @media (max-width: 768px) {
                 .geri-sayim .zaman {
                     margin: 0 5px;
                     min-width: 60px;
                 }
+                
                 .geri-sayim .deger {
                     font-size: 22px;
                 }
+                
                 .geri-sayim .birim {
                     font-size: 12px;
+                }
+            }
+            
+            /* Section Titles */
+            .section-title-wrap {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+            }
+            
+            .section-title-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .section-title-line {
+                height: 2px;
+                width: 50px;
+                background: var(--primary-color);
+                display: inline-block;
+            }
+            
+            .section-title-icon {
+                color: var(--primary-color);
+                margin: 0 15px;
+            }
+            
+            /* About Section */
+            .about-section {
+                padding: 80px 0;
+            }
+            
+            .about-image {
+                border-radius: 10px;
+                margin-bottom: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .about-info-title {
+                margin-bottom: 20px;
+            }
+            
+            .about-tag {
+                background: var(--primary-color);
+                color: var(--light-text);
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+            }
+            
+            /* Wedding Info Section */
+            .the-wedding-section {
+                padding: 80px 0;
+                background: var(--secondary-color);
+            }
+            
+            .section-block {
+                padding: 20px 0;
+            }
+            
+            .section-block h3 {
+                color: var(--primary-color);
+                margin-bottom: 15px;
+            }
+            
+            /* Contact Section */
+            .contact-section {
+                padding: 80px 0;
+            }
+            
+            .social-icon {
+                list-style: none;
+                padding: 0;
+                display: flex;
+            }
+            
+            .social-icon-item {
+                margin-right: 15px;
+            }
+            
+            .social-icon-link {
+                color: var(--text-color);
+                font-size: 1.5rem;
+                transition: all 0.3s ease;
+            }
+            
+            .social-icon-link:hover {
+                color: var(--primary-color);
+            }
+            
+            /* Navbar */
+            .navbar {
+                padding: 20px 0;
+                position: absolute;
+                width: 100%;
+                z-index: 1000;
+            }
+            
+            .navbar-brand {
+                font-size: 1.8rem;
+                color: var(--light-text);
+            }
+            
+            .brand-icon {
+                color: var(--primary-color);
+                margin: 0 10px;
+            }
+            
+            .nav-link {
+                color: rgba(255, 255, 255, 0.8);
+                margin: 0 10px;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-link:hover {
+                color: var(--light-text);
+            }
+            
+            /* Preloader */
+            .preloader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--light-text);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+            }
+            
+            .spinner-rotate {
+                animation: rotate 2s linear infinite;
+                color: var(--primary-color);
+                font-size: 3rem;
+            }
+            
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            /* Layout Adjustments for Mobile */
+            @media (max-width: 992px) {
+                .hero-content {
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+                
+                .save-the-date-wrap {
+                    margin: 0 auto;
+                }
+                
+                .about-image {
+                    margin-bottom: 30px;
                 }
             }
         </style>
@@ -80,16 +314,13 @@
         <section class="preloader">
             <div class="spinner">
                 <span class="spinner-rotate">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
+                    <i class="bi bi-heart-fill"></i>
                 </span>    
             </div>
         </section>
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -119,34 +350,31 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
 
         <main>
-
-            <section class="hero-section d-flex" id="section_1">
-                <div class="hero-container container d-flex flex-column justify-content-end">
-                    <div class="row h-100">
-
-                        <div class="col-lg-6 col-12 my-auto">
-                            <h2>👋 Davetlisiniz</h2>
-
-                            <h1 class="text-black hero-title mb-4">Nişanlanıyoruz</h1>
-
-                            <a href="#section_2" class="custom-link custom-btn btn mt-4">Bilgiler</a>
+            <section class="hero-section d-flex align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Sol taraf: Davet metni ve bilgiler -->
+                        <div class="col-lg-6 col-12 hero-content">
+                            <h2 class="amatic-font" style="font-size: 2.5rem;">👋 Davetlisiniz</h2>
+                            <h1 class="amatic-font hero-title">Nişanlanıyoruz</h1>
+                            <p class="lead mb-4">Sevdiklerimizle en özel anımızı paylaşmak için sizleri aramızda görmekten mutluluk duyacağız.</p>
+                            <a href="#section_2" class="custom-link">Bilgiler</a>
                         </div>
-
-                        <div class="col-lg-3 col-12 save-the-date-wrap mt-auto ms-lg-auto">
-                            <div class="save-the-date-thumb">
-                                <h4 class="save-the-date-title">NİŞAN TARİHİ</h4>
-
-                                <div class="save-the-date-body">
-                                    <p> 04 Ekim 2025 
-                                    <br>CUMARTESİ</p>
+                        
+                        <!-- Sağ taraf: Tarih ve geri sayım -->
+                        <div class="col-lg-5 col-12 ms-auto">
+                            <div class="save-the-date-wrap">
+                                <h4 class="save-the-date-title amatic-font">NİŞAN TARİHİ</h4>
+                                <div class="save-the-date-body amatic-font">
+                                    <p>04 Ekim 2025 <br>CUMARTESİ</p>
+                                    <p><i class="bi bi-clock"></i> 18:00</p>
                                 </div>
                                 
-                                <!-- Geri Sayım Eklentisi Buraya -->
+                                <!-- Geri Sayım -->
                                 <div class="geri-sayim">
                                     <div class="zaman">
                                         <span id="gun" class="deger">0</span>
@@ -167,20 +395,16 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-
-            <section class="about-section section-padding" id="section_2">
+            <section class="about-section" id="section_2">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
-                                <h2 class="section-title">Aşk Hikayesi</h2>
-
+                                <h2 class="section-title amatic-font">Aşk Hikayesi</h2>
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
                                     <i class="section-title-icon bi-heart-fill"></i>
@@ -189,86 +413,71 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-12">
-                            <div class="image-hover-thumb">
-                                <img src="images/vertical-shot-beautiful-smiling-girl.jpg" class="about-image img-fluid" alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-12">
-                            <div class="about-info-wrap d-flex flex-column">
-                                <div class="about-info-title d-flex align-items-center my-3">
-                                    <h4>Helin</h4>
-
-                                    <span class="about-tag ms-2">GELİN</Nav></span>
+                        <div class="col-lg-6 col-12 mb-5">
+                            <div class="row">
+                                <div class="col-md-5 col-12">
+                                    <img src="https://placehold.co/400x500" class="about-image img-fluid" alt="Helin">
                                 </div>
-
-                                <p>Sevgili ailemiz ve dostlarımız,</p>
-                                
-                                 <p>Barış ile birlikte hayatımızın en güzel adımlarından ilkini atıyoruz. 
-                                    Bu özel günümüzde yanımızda olmanız, bizimle gülüp sevinmeniz her şeyden daha değerli. 
-                                    Hep beraber güzel bir hatıra biriktirmek dileğiyle…💕</p>
-
-                                <div class="social-icon-wrap mt-auto">
-                                    <ul class="social-icon ms-auto">
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
-
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
-
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
-
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
-                                    </ul>
+                                <div class="col-md-7 col-12">
+                                    <div class="about-info-wrap d-flex flex-column">
+                                        <div class="about-info-title d-flex align-items-center my-3">
+                                            <h4>Helin</h4>
+                                            <span class="about-tag ms-2">GELİN</span>
+                                        </div>
+                                        <p>Sevgili ailemiz ve dostlarımız,</p>
+                                        <p>Barış ile birlikte hayatımızın en güzel adımlarından ilkini atıyoruz. 
+                                        Bu özel günümüzde yanımızda olmanız, bizimle gülüp sevinmeniz her şeyden daha değerli. 
+                                        Hep beraber güzel bir hatıra biriktirmek dileğiyle…💕</p>
+                                        <div class="social-icon-wrap mt-auto">
+                                            <ul class="social-icon">
+                                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
+                                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
+                                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+                                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-12">
-                            <div class="image-hover-thumb">
-                                <img src="images/vertical-shot-young-handsome-guy-autumn-park.jpg" class="about-image img-fluid" alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-12">
-                            <div class="about-info-wrap d-flex flex-column">
-                                <div class="about-info-title d-flex align-items-center my-3">
-                                    <h4>Barış</h4>
-
-                                    <span class="about-tag ms-2">DAMAT</span>
+                        <div class="col-lg-6 col-12">
+                            <div class="row">
+                                <div class="col-md-5 col-12">
+                                    <img src="https://placehold.co/400x500" class="about-image img-fluid" alt="Barış">
                                 </div>
-
-                                <p>Merhaba,</p>
-
-                                <p>Helin ile birlikte hayatımızda yeni bir sayfa açıyoruz 
-                                    ve bu özel anımızda sizleri de yanımızda görmek istiyoruz. 
-                                    Gelin, birlikte gülelim, eğlenelim ve unutulmaz bir hatıra kuralım...💕</p>
-
-                                <div class="social-icon-wrap mt-auto">
-                                    <ul class="social-icon ms-auto">
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
-
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
-
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
-
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
-                                    </ul>
+                                <div class="col-md-7 col-12">
+                                    <div class="about-info-wrap d-flex flex-column">
+                                        <div class="about-info-title d-flex align-items-center my-3">
+                                            <h4>Barış</h4>
+                                            <span class="about-tag ms-2">DAMAT</span>
+                                        </div>
+                                        <p>Merhaba,</p>
+                                        <p>Helin ile birlikte hayatımızda yeni bir sayfa açıyoruz 
+                                        ve bu özel anımızda sizleri de yanımızda görmek istiyoruz. 
+                                        Gelin, birlikte gülelim, eğlenelim ve unutulmaz bir hatıra kuralım...💕</p>
+                                        <div class="social-icon-wrap mt-auto">
+                                            <ul class="social-icon">
+                                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
+                                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
+                                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+                                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            <section class="the-wedding-section section-bg section-padding" id="section_3">
+            <section class="the-wedding-section" id="section_3">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
-                                <h2 class="section-title">ETKİNLİK BİLGİLERİ</h2>
-
+                                <h2 class="section-title amatic-font">ETKİNLİK BİLGİLERİ</h2>
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
                                     <i class="section-title-icon bi-heart-fill"></i>
@@ -277,53 +486,37 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
-                            <div class="image-hover-thumb">
-                                <img src="images/decorated-table-setting-wedding-celebration.jpg" class="img-fluid" alt="">
-                            </div>
-
+                        <div class="col-lg-6 col-12 mb-5">
                             <div class="section-block">
-                                <h3 class="my-3">TÖREN ALANI</h3>
-
-                                <p class="mb-2">
-                                    <i class="bi-geo-alt me-1"></i>
-                                    MİLENA DAVET EVİ
-                                </p>
-
-                                <p>
-                                    <i class="bi-clock me-1"></i>
-                                    18:00
-                                </p>
+                                <h3 class="mb-3"><i class="bi bi-geo-alt-fill"></i> TÖREN ALANI</h3>
+                                <p class="mb-2"><strong>MİLENA DAVET EVİ</strong></p>
+                                <p class="mb-2">Yeni açık oto pazarı yanı, Fabrika, 867/1 sokak, Yenişehir/Diyarbakır</p>
+                                <p><i class="bi bi-clock"></i> 18:00</p>
+                            </div>
+                            
+                            <div class="section-block mt-4">
+                                <h3 class="mb-3"><i class="bi bi-info-circle"></i> ÖNEMLİ BİLGİLER</h3>
+                                <ul>
+                                    <li>Davetiye olmadan giriş yapılamayacaktır</li>
+                                    <li>Organizasyon için çiçek yerine hediye tercihimizdir</li>
+                                    <li>Çocuk dostu bir organizasyon olacaktır</li>
+                                </ul>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12 d-flex flex-column">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.252220360113!2d40.1701951!3d37.9712428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074e1c63d361249%3A0x190d3884be0ad359!2zTcSwTEVOQSBEQVZFVCBFVsSwICYgT1JHQU7EsFpBU1lPTg!5e0!3m2!1str!2str!4v1757858507898!5m2!1str!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            <div class="section-block">
-                                <h3 class="my-3">Konum</h3>
-
-                                <p class="mb-2">
-                                    <i class="bi-geo-alt me-1"></i>
-                                    yeni açık oto pazarı yanı,
-                                    Fabrika, 867/1 sokak,
-                                    Yenişehir/Diyarbakır
-                                </p>
-                            </div>
+                        <div class="col-lg-6 col-12">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.252220360113!2d40.1701951!3d37.9712428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074e1c63d361249%3A0x190d3884be0ad359!2zTcSwTEVOQSBEQVZFVCBFVsSwICYgT1JHQU7EsFpBU1lPTg!5e0!3m2!1str!2str!4v1757858507898!5m2!1str!2str" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-
-            <section class="contact-section section-bg section-padding" id="section_7">
+            <section class="contact-section" id="section_7">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
-                                <h2 class="section-title">İletişime geçin</h2>
-
+                                <h2 class="section-title amatic-font">İletişime geçin</h2>
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
                                     <i class="section-title-icon bi-heart-fill"></i>
@@ -332,75 +525,83 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <h4 class="mb-4">Bizi Ziyaret Edin</h4>
-
-                            <p> MİLENA DAVET EVİ 
-                            <br> yeni açık oto pazarı yanı</p>
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <h4 class="mb-4"><i class="bi bi-geo-alt"></i> Bizi Ziyaret Edin</h4>
+                            <p>MİLENA DAVET EVİ<br>Yeni açık oto pazarı yanı<br>Fabrika, 867/1 sokak<br>Yenişehir/Diyarbakır</p>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12 my-4 my-lg-0 my-md-0">
-                            <h4 class="mb-4">İletişim Bilgileri</h4>
-
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <h4 class="mb-4"><i class="bi bi-telephone"></i> İletişim Bilgileri</h4>
                             <p class="mb-2">
-                                <a href="mailto:barisha@yaani.com">
-                                    barisha@yaani.com
-                                </a>
+                                <a href="mailto:barisha@yaani.com">barisha@yaani.com</a>
                             </p>
-
+                            <p class="mb-2">Barış: 0532 XXX XX XX</p>
+                            <p>Helin: 0532 XXX XX XX</p>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-12">
-                            <h4 class="mb-4">İletişim</h4>
-
+                            <h4 class="mb-4"><i class="bi bi-heart"></i> Bizi Takip Edin</h4>
                             <ul class="social-icon">
-                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
-
                                 <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
-
                                 <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
-
-                                <li class="social-icon-item"><a href="#" target="_blank" class="social-icon-link bi-facebook"></a></li>
+                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
                             </ul>
-
-                            <p class="copyright-text mt-3 mb-0">BarisHA © 2025 herşey Helin için. 
-                            <br> Tasarım: <a href="https://barisha-app.github.io/Baris-Helin/" target="_parent">BarisHA</a></p>
+                            
+                            <p class="mt-4">"Hayatımızın bu özel anında sizleri de aramızda görmek istiyoruz."</p>
                         </div>
-
                     </div>
                 </div>
             </section>
-
         </main>
 
-        <footer class="site-footer">
+        <footer class="site-footer py-4">
             <div class="container">
                 <div class="row">
-
-                    <div class="col-lg-3 col-12 mx-auto">
-                        <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                    <div class="col-lg-12 col-12 text-center">
+                        <a href="index.html" class="navbar-brand mx-auto">
                             <span>Barış</span>
                             <i class="bi-heart brand-icon"></i>
-                            <span>Helin</span>,
+                            <span>Helin</span>
                         </a>
+                        <p class="mt-3 mb-0">04 Ekim 2025'te görüşmek üzere...</p>
                     </div>
-
                 </div>
             </div>
         </footer>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/magnific-popup-options.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
-        <!-- Geri Sayım JavaScript -->
         <script>
-            // 4 Ekim 2025 Cumartesi saat 18:00
+            // Preloader
+            $(window).on('load', function() {
+                $('.preloader').fadeOut('slow');
+            });
+            
+            // Sticky Navbar
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('bg-dark');
+                } else {
+                    $('.navbar').removeClass('bg-dark');
+                }
+            });
+            
+            // Smooth Scrolling
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 70,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+            
+            // Geri Sayım
             var hedefTarih = new Date(2025, 9, 4, 18, 0, 0);
             
             function guncelleGeriSayim() {
