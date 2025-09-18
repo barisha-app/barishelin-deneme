@@ -17,96 +17,122 @@
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
         
         <style>
+            /* Genel Stiller */
             body {
                 font-family: 'Playfair Display', serif;
+                background-color: #f9f9f9;
                 color: #333;
-                overflow-x: hidden;
-            }
-            
-            .amatic-font {
-                font-family: 'Amatic SC', cursive;
-                font-weight: 700;
-            }
-            
-            /* Hero Section */
-            .hero-section {
-                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/yüzüklü.jpg') no-repeat center center;
-                background-size: cover;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                color: #fff;
-                padding: 60px 0;
             }
             
             .hero-title {
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
                 font-size: 4rem;
-                margin-bottom: 20px;
-                color: #fff;
             }
             
-            @media (max-width: 768px) {
-                .hero-title {
-                    font-size: 2.5rem;
-                }
-                
-                .hero-section {
-                    text-align: center;
-                    padding: 100px 0 60px;
-                }
+            .brand-icon {
+                color: #ff6b6b;
+                margin: 0 10px;
             }
             
-            /* Custom Link Button */
-            .custom-link {
-                color: #fff;
+            .navbar-brand span {
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+                font-size: 3rem;
+            }
+            
+            .custom-btn {
+                background-color: #ff6b6b;
+                color: white;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 30px;
                 text-decoration: none;
-                border: 2px solid #fff;
-                padding: 12px 30px;
                 display: inline-block;
-                transition: all 0.3s ease;
+                transition: all 0.3s;
             }
             
-            .custom-link:hover {
-                background: #fff;
-                color: #333;
+            .custom-btn:hover {
+                background-color: #ff5252;
+                transform: translateY(-3px);
             }
             
-            /* Save The Date Section */
+            /* Hero Section Düzeni */
+            .hero-section {
+                background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                background-size: cover;
+                background-position: center;
+                min-height: 100vh;
+                padding: 100px 0;
+                position: relative;
+            }
+            
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.7);
+            }
+            
+            .hero-container {
+                position: relative;
+                z-index: 1;
+            }
+            
+            /* Sol Taraf - Geri Sayım ve Tarih */
+            .left-content {
+                padding-right: 30px;
+            }
+            
+            /* Sağ Taraf - Davet Metni */
+            .right-content {
+                padding-left: 30px;
+                text-align: right;
+            }
+            
             .save-the-date-wrap {
-                background: rgba(0, 0, 0, 0.7);
-                padding: 30px;
-                border-radius: 10px;
-                text-align: center;
-                margin-top: 30px;
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 15px;
+                padding: 25px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+                border: 2px solid #ff6b6b;
             }
             
             .save-the-date-title {
-                color: #d4af37;
-                font-size: 1.8rem;
-                margin-bottom: 20px;
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+                font-size: 2rem;
+                color: #ff6b6b;
+                margin-bottom: 15px;
             }
             
             .save-the-date-body {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 margin-bottom: 20px;
-                color: #fff;
             }
             
-            /* Geri Sayım - YENİ DÜZENLEME */
+            /* Geri Sayım Stilleri */
             .geri-sayim {
                 margin-top: 20px;
-                padding: 15px;
-                background: rgba(255, 255, 255, 0.15);
-                border-radius: 10px;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.85);
+                border-radius: 15px;
                 text-align: center;
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                border: 2px solid #000;
             }
             
             .geri-sayim .zaman {
@@ -119,20 +145,35 @@
             .geri-sayim .deger {
                 font-size: 28px;
                 font-weight: bold;
-                color: #fff;
+                color: #000;
+                text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), 
+                             -1px -1px 0 rgba(255, 255, 255, 0.5),
+                             1px -1px 0 rgba(255, 255, 255, 0.5),
+                             -1px 1px 0 rgba(255, 255, 255, 0.5),
+                             1px 1px 0 rgba(255, 255, 255, 0.5);
                 display: block;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             }
             
             .geri-sayim .birim {
                 font-size: 14px;
-                color: #d4af37;
+                color: #000;
                 font-weight: bold;
+                text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
                 letter-spacing: 1px;
                 margin-top: 5px;
             }
             
-            @media (max-width: 768px) {
+            /* Responsive Düzenlemeler */
+            @media (max-width: 992px) {
+                .left-content, .right-content {
+                    padding: 0 15px;
+                    text-align: center;
+                }
+                
+                .hero-title {
+                    font-size: 3rem;
+                }
+                
                 .geri-sayim .zaman {
                     margin: 0 5px;
                     min-width: 60px;
@@ -145,116 +186,53 @@
                 .geri-sayim .birim {
                     font-size: 12px;
                 }
+            }
+            
+            @media (max-width: 576px) {
+                .geri-sayim .zaman {
+                    margin: 5px;
+                    min-width: 50px;
+                }
                 
                 .save-the-date-wrap {
-                    margin: 30px auto;
-                    max-width: 400px;
+                    padding: 15px;
                 }
             }
             
-            /* Section Titles */
-            .section-title-wrap {
-                text-align: center;
-                margin-bottom: 50px;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-                margin-bottom: 20px;
-                position: relative;
-                display: inline-block;
-            }
-            
-            .section-title-bottom {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .section-title-line {
-                height: 2px;
-                width: 50px;
-                background: #d4af37;
-                display: inline-block;
-            }
-            
-            .section-title-icon {
-                color: #d4af37;
-                margin: 0 15px;
-            }
-            
-            /* About Section */
-            .about-section {
+            /* Diğer Bölümler */
+            .section-padding {
                 padding: 80px 0;
             }
             
-            .about-image {
+            .section-bg {
+                background-color: #f8f9fa;
+            }
+            
+            .image-hover-thumb {
+                overflow: hidden;
                 border-radius: 10px;
                 margin-bottom: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .image-hover-thumb img {
+                transition: transform 0.5s;
                 width: 100%;
             }
             
+            .image-hover-thumb:hover img {
+                transform: scale(1.05);
+            }
+            
             .about-info-title {
-                margin-bottom: 20px;
-            }
-            
-            .about-tag {
-                background: #d4af37;
-                color: #fff;
-                padding: 5px 15px;
-                border-radius: 20px;
-                font-size: 0.9rem;
-                font-weight: 700; /* Daha kalın yazı */
-                letter-spacing: 0.5px; /* Daha estetik görünüm */
-                text-transform: uppercase; /* Daha estetik görünüm */
-            }
-            
-            @media (max-width: 768px) {
-                .about-section .col-lg-3 {
-                    margin-bottom: 40px;
-                }
-                
-                .about-image {
-                    max-width: 300px;
-                    margin: 0 auto 20px;
-                    display: block;
-                }
-            }
-            
-            /* Wedding Info Section */
-            .the-wedding-section {
-                padding: 80px 0;
-                background: #f8f9fa;
-            }
-            
-            .section-block {
-                padding: 20px 0;
-            }
-            
-            .section-block h3 {
-                color: #d4af37;
                 margin-bottom: 15px;
             }
             
-            iframe {
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            @media (max-width: 768px) {
-                .the-wedding-section .col-lg-4 {
-                    margin-bottom: 40px;
-                }
-                
-                iframe {
-                    height: 300px;
-                }
-            }
-            
-            /* Contact Section */
-            .contact-section {
-                padding: 80px 0;
+            .about-tag {
+                background: #ff6b6b;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 20px;
+                font-size: 0.8rem;
             }
             
             .social-icon {
@@ -268,109 +246,65 @@
             }
             
             .social-icon-link {
-                color: #333;
+                color: #ff6b6b;
                 font-size: 1.5rem;
-                transition: all 0.3s ease;
+                transition: color 0.3s;
             }
             
             .social-icon-link:hover {
-                color: #d4af37;
+                color: #ff5252;
             }
             
-            /* Navbar - YENİ DÜZENLEME */
-            .navbar {
-                padding: 20px 0;
-                position: absolute;
-                width: 100%;
-                z-index: 1000;
+            .section-title-wrap {
+                text-align: center;
+                margin-bottom: 50px;
             }
             
-            .navbar-brand {
-                font-size: 1.8rem;
-                color: #fff;
+            .section-title-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 15px;
             }
             
-            .brand-icon {
-                color: #d4af37;
-                margin: 0 10px;
+            .section-title-line {
+                height: 2px;
+                width: 50px;
+                background: #ff6b6b;
+                display: inline-block;
             }
             
-            .nav-link {
-                color: #000; /* Siyah renk */
-                margin: 0 10px;
-                transition: all 0.3s ease;
-                font-weight: 700; /* Daha kalın yazı */
-                font-size: 1.05rem; /* Biraz daha büyük yazı */
+            .section-title-icon {
+                color: #ff6b6b;
+                margin: 0 15px;
             }
             
-            .nav-link:hover {
-                color: #d4af37;
+            .copyright-text {
+                font-size: 0.9rem;
             }
             
-            @media (max-width: 992px) {
-                .navbar-collapse {
-                    background: rgba(255, 255, 255, 0.95); /* Açık arkaplan */
-                    padding: 20px;
-                    border-radius: 10px;
-                    margin-top: 10px;
-                }
-            }
-            
-            /* Preloader - YENİ DÜZENLEME */
             .preloader {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: #fff;
+                background: white;
+                z-index: 9999;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                z-index: 9999;
             }
             
             .spinner-rotate {
                 animation: rotate 2s linear infinite;
-                color: #d4af37;
-                font-size: 3rem;
-            }
-            
-            .preloader-image {
-                width: 80px;
-                height: 80px;
-                animation: pulse 1.5s ease-in-out infinite both;
+                color: #ff6b6b;
+                font-size: 2rem;
             }
             
             @keyframes rotate {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-            
-            @keyframes pulse {
-                0% {
-                    transform: scale(0.9);
-                    opacity: 0.7;
-                }
-                50% {
-                    transform: scale(1.1);
-                    opacity: 1;
-                }
-                100% {
-                    transform: scale(0.9);
-                    opacity: 0.7;
-                }
-            }
-            
-            /* Footer */
-            .site-footer {
-                padding: 30px 0;
-                background: #f8f9fa;
-                text-align: center;
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
         </style>
     </head>
@@ -379,12 +313,17 @@
 
         <section class="preloader">
             <div class="spinner">
-                <img src="images/yüzük.png" class="preloader-image" alt="Yüzük">
+                <span class="spinner-rotate">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                    </svg>
+                </span>    
             </div>
         </section>
 
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -414,32 +353,27 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
 
         <main>
-            <section class="hero-section d-flex" id="section_1">
-                <div class="hero-container container d-flex flex-column justify-content-end">
-                    <div class="row h-100">
 
-                        <div class="col-lg-6 col-12 my-auto">
-                            <h2>👋 Davetlisiniz</h2>
+            <section class="hero-section d-flex align-items-center" id="section_1">
+                <div class="container hero-container">
+                    <div class="row h-100 align-items-center">
+                        
+                        <!-- Sol Taraf: Geri Sayım ve Tarih -->
+                        <div class="col-lg-6 left-content">
+                            <div class="save-the-date-wrap">
+                                <h4 class="save-the-date-title">NİŞAN TARİHİ</h4>
 
-                            <h1 class="hero-title amatic-font mb-4">Nişanlanıyoruz</h1>
-
-                            <a href="#section_2" class="custom-link custom-btn btn mt-4">Bilgiler</a>
-                        </div>
-
-                        <div class="col-lg-3 col-12 save-the-date-wrap mt-auto ms-lg-auto">
-                            <div class="save-the-date-thumb">
-                                <h4 class="save-the-date-title amatic-font">NİŞAN TARİHİ</h4>
-
-                                <div class="save-the-date-body amatic-font">
+                                <div class="save-the-date-body">
                                     <p> 04 Ekim 2025 
                                     <br>CUMARTESİ</p>
                                 </div>
                                 
-                                <!-- Geri Sayım Eklentisi Buraya - YENİ DÜZENLEME -->
+                                <!-- Geri Sayım -->
                                 <div class="geri-sayim">
                                     <div class="zaman">
                                         <span id="gun" class="deger">0</span>
@@ -461,6 +395,15 @@
                             </div>
                         </div>
 
+                        <!-- Sağ Taraf: Davet Metni -->
+                        <div class="col-lg-6 right-content">
+                            <h2>👋 Davetlisiniz</h2>
+
+                            <h1 class="text-black hero-title mb-4">Nişanlanıyoruz</h1>
+
+                            <a href="#section_2" class="custom-link custom-btn btn mt-4">Bilgiler</a>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -472,7 +415,7 @@
 
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
-                                <h2 class="section-title amatic-font">Aşk Hikayesi</h2>
+                                <h2 class="section-title">Aşk Hikayesi</h2>
 
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
@@ -484,7 +427,7 @@
 
                         <div class="col-lg-3 col-12">
                             <div class="image-hover-thumb">
-                                <img src="images/vertical-shot-beautiful-smiling-girl.jpg" class="about-image img-fluid" alt="">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="about-image img-fluid" alt="Helin">
                             </div>
                         </div>
 
@@ -518,7 +461,7 @@
 
                         <div class="col-lg-3 col-12">
                             <div class="image-hover-thumb">
-                                <img src="images/vertical-shot-young-handsome-guy-autumn-park.jpg" class="about-image img-fluid" alt="">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="about-image img-fluid" alt="Barış">
                             </div>
                         </div>
 
@@ -560,7 +503,7 @@
 
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
-                                <h2 class="section-title amatic-font">ETKİNLİK BİLGİLERİ</h2>
+                                <h2 class="section-title">ETKİNLİK BİLGİLERİ</h2>
 
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
@@ -572,7 +515,7 @@
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
                             <div class="image-hover-thumb">
-                                  <img src="images/decorated-table-setting-wedding-celebration.jpg" class="img-fluid" alt="">
+                                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid" alt="Düğün Mekanı">
                             </div>
 
                             <div class="section-block">
@@ -591,7 +534,9 @@
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.252220360113!2d40.1701951!3d37.9712428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074e1c63d361249%3A0x190d3884be0ad359!2zTcSwTEVOQSBEQVZFVCBFVsSwICYgT1JHQU7EsFpBU1lPTg!5e0!3m2!1str!2str!4v1757858507898!5m2!1str!2str" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="image-hover-thumb">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.252220360113!2d40.1701951!3d37.9712428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074e1c63d361249%3A0x190d3884be0ad359!2zTcSwTEVOQSBEQVZFVCBFVsSwICYgT1JHQU7EsFpBU1lPTg!5e0!3m2!1str!2str!4v1757858507898!5m2!1str!2str" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                             <div class="section-block">
                                 <h3 class="my-3">Konum</h3>
 
@@ -615,7 +560,7 @@
 
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
-                                <h2 class="section-title amatic-font">İletişime geçin</h2>
+                                <h2 class="section-title">İletişime geçin</h2>
 
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
@@ -666,11 +611,11 @@
 
         </main>
 
-        <footer class="site-footer">
+        <footer class="site-footer py-4">
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-3 col-12 mx-auto">
+                    <div class="col-lg-3 col-12 mx-auto text-center">
                         <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
                             <span>Barış</span>
                             <i class="bi-heart brand-icon"></i>
@@ -692,7 +637,7 @@
                 $('.preloader').fadeOut('slow');
             });
             
-            // Smooth Scrolling
+            // Smooth scrolling
             $('a[href*="#"]').on('click', function(e) {
                 e.preventDefault();
                 
@@ -703,6 +648,15 @@
                     500,
                     'linear'
                 );
+            });
+            
+            // Sticky navbar
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('sticky');
+                } else {
+                    $('.navbar').removeClass('sticky');
+                }
             });
             
             // Geri Sayım
