@@ -36,6 +36,59 @@ Free Bootstrap 5 HTML Template
     </head>
     
     <body>
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: rgba(255, 255, 255, 0.95); border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); padding: 30px; text-align: center; max-width: 500px; margin: 20px auto;">
+    <h2 style="color: #6e8efb; margin-top: 0;">4 Ekim 2025'e Kalan Süre</h2>
+    <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+        <div style="display: inline-block; margin: 0 10px;">
+            <span id="gun" style="font-size: 28px; font-weight: bold; color: #6e8efb; display: block;">0</span>
+            <span style="font-size: 14px; color: #777;">Gün</span>
+        </div>
+        <div style="display: inline-block; margin: 0 10px;">
+            <span id="saat" style="font-size: 28px; font-weight: bold; color: #6e8efb; display: block;">0</span>
+            <span style="font-size: 14px; color: #777;">Saat</span>
+        </div>
+        <div style="display: inline-block; margin: 0 10px;">
+            <span id="dakika" style="font-size: 28px; font-weight: bold; color: #6e8efb; display: block;">0</span>
+            <span style="font-size: 14px; color: #777;">Dakika</span>
+        </div>
+        <div style="display: inline-block; margin: 0 10px;">
+            <span id="saniye" style="font-size: 28px; font-weight: bold; color: #6e8efb; display: block;">0</span>
+            <span style="font-size: 14px; color: #777;">Saniye</span>
+        </div>
+        <p style="font-style: italic; margin-top: 15px; color: #555;">Hedef tarih: 4 Ekim 2025, 18:00</p>
+    </div>
+</div>
+
+<script>
+    // 4 Ekim 2025 saat 18:00
+    var hedefTarih = new Date(2025, 9, 4, 18, 0, 0);
+    
+    function guncelle() {
+        var simdi = new Date();
+        var fark = hedefTarih - simdi;
+        
+        if (fark <= 0) {
+            document.getElementById("gun").textContent = '0';
+            document.getElementById("saat").textContent = '0';
+            document.getElementById("dakika").textContent = '0';
+            document.getElementById("saniye").textContent = '0';
+            return;
+        }
+        
+        var gun = Math.floor(fark / (1000 * 60 * 60 * 24));
+        var saat = Math.floor((fark % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var dakika = Math.floor((fark % (1000 * 60 * 60)) / (1000 * 60));
+        var saniye = Math.floor((fark % (1000 * 60)) / 1000);
+        
+        document.getElementById("gun").textContent = gun;
+        document.getElementById("saat").textContent = saat;
+        document.getElementById("dakika").textContent = dakika;
+        document.getElementById("saniye").textContent = saniye;
+    }
+    
+    setInterval(guncelle, 1000);
+    guncelle();
+</script>
 
         <section class="preloader">
             <div class="spinner">
@@ -328,94 +381,7 @@ Free Bootstrap 5 HTML Template
                 </div>
             </div>
         </footer>
-
-        <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/magnific-popup-options.js"></script>
-        <script src="js/custom.js"></script>
-
-        <div class="geri-sayim">
-    <div class="zaman">
-        <span id="gun" class="deger">0</span>
-        <div class="birim">Gün</div>
-    </div>
-    <div class="zaman">
-        <span id="saat" class="deger">0</span>
-        <div class="birim">Saat</div>
-    </div>
-    <div class="zaman">
-        <span id="dakika" class="deger">0</span>
-        <div class="birim">Dakika</div>
-    </div>
-    <div class="zaman">
-        <span id="saniye" class="deger">0</span>
-        <div class="birim">Saniye</div>
-    </div>
-    <div id="tamamlandi" class="tamamlandi" style="display:none;">Geri sayım tamamlandı!</div>
-</div>
-
-<style>
-    .geri-sayim {
-        font-family: Arial, sans-serif;
-        padding: 15px;
-        background: #f0f8ff;
-        border-radius: 8px;
-        text-align: center;
-        max-width: 400px;
-        margin: 20px auto;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    .geri-sayim .zaman {
-        display: inline-block;
-        margin: 0 8px;
-    }
-    .geri-sayim .deger {
-        font-size: 24px;
-        font-weight: bold;
-        color: #2c73d2;
-    }
-    .geri-sayim .birim {
-        font-size: 12px;
-        color: #666;
-    }
-    .tamamlandi {
-        color: #ff4d4d;
-        font-weight: bold;
-        margin-top: 10px;
-    }
-</style>
-
-<script>
-    // Hedef tarihi buraya yazın (Yıl, Ay-1, Gün, Saat, Dakika)
-    var hedefTarih = new Date(2025, 10, 04, 18, 00, 00);
-    
-    function guncelle() {
-        var simdi = new Date();
-        var fark = hedefTarih - simdi;
         
-        if (fark <= 0) {
-            document.getElementById("tamamlandi").style.display = "block";
-            return;
-        }
-        
-        var gun = Math.floor(fark / (1000 * 60 * 60 * 24));
-        var saat = Math.floor((fark % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var dakika = Math.floor((fark % (1000 * 60 * 60)) / (1000 * 60));
-        var saniye = Math.floor((fark % (1000 * 60)) / 1000);
-        
-        document.getElementById("gun").textContent = gun;
-        document.getElementById("saat").textContent = saat;
-        document.getElementById("dakika").textContent = dakika;
-        document.getElementById("saniye").textContent = saniye;
-    }
-    
-    setInterval(guncelle, 1000);
-    guncelle();
-</script>
     </body>
 </html>
 
