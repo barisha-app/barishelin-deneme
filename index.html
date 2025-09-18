@@ -338,8 +338,87 @@ Free Bootstrap 5 HTML Template
         <script src="js/magnific-popup-options.js"></script>
         <script src="js/custom.js"></script>
 
+        <div class="geri-sayim">
+    <div class="zaman">
+        <span id="gun" class="deger">0</span>
+        <div class="birim">Gün</div>
+    </div>
+    <div class="zaman">
+        <span id="saat" class="deger">0</span>
+        <div class="birim">Saat</div>
+    </div>
+    <div class="zaman">
+        <span id="dakika" class="deger">0</span>
+        <div class="birim">Dakika</div>
+    </div>
+    <div class="zaman">
+        <span id="saniye" class="deger">0</span>
+        <div class="birim">Saniye</div>
+    </div>
+    <div id="tamamlandi" class="tamamlandi" style="display:none;">Geri sayım tamamlandı!</div>
+</div>
+
+<style>
+    .geri-sayim {
+        font-family: Arial, sans-serif;
+        padding: 15px;
+        background: #f0f8ff;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 400px;
+        margin: 20px auto;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .geri-sayim .zaman {
+        display: inline-block;
+        margin: 0 8px;
+    }
+    .geri-sayim .deger {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2c73d2;
+    }
+    .geri-sayim .birim {
+        font-size: 12px;
+        color: #666;
+    }
+    .tamamlandi {
+        color: #ff4d4d;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+
+<script>
+    // Hedef tarihi buraya yazın (Yıl, Ay-1, Gün, Saat, Dakika)
+    var hedefTarih = new Date(2025, 10, 04, 18, 00, 00);
+    
+    function guncelle() {
+        var simdi = new Date();
+        var fark = hedefTarih - simdi;
+        
+        if (fark <= 0) {
+            document.getElementById("tamamlandi").style.display = "block";
+            return;
+        }
+        
+        var gun = Math.floor(fark / (1000 * 60 * 60 * 24));
+        var saat = Math.floor((fark % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var dakika = Math.floor((fark % (1000 * 60 * 60)) / (1000 * 60));
+        var saniye = Math.floor((fark % (1000 * 60)) / 1000);
+        
+        document.getElementById("gun").textContent = gun;
+        document.getElementById("saat").textContent = saat;
+        document.getElementById("dakika").textContent = dakika;
+        document.getElementById("saniye").textContent = saniye;
+    }
+    
+    setInterval(guncelle, 1000);
+    guncelle();
+</script>
     </body>
 </html>
+
 
 
 
